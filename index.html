@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohan Kanojia · Web3 Growth, Community & Code</title>
+  <meta name="description" content="Web3 growth marketer who ships code. KOL campaigns, social media management, and community growth for crypto projects, plus full-stack and Solidity development.">
+  <link rel="icon" href="images/icon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#10141D;
+      --panel:#171D29;
+      --line:#232B3A;
+      --text:#E8ECF4;
+      --muted:#8B94A7;
+      --up:#34D399;
+      --brand:#F5B841;
+      --maxw:1060px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Sora',sans-serif;
+      font-weight:300;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3{ font-family:'Syne',sans-serif; line-height:1.15; margin:0 0 1rem; }
+    h2{ font-size:clamp(1.7rem,3.5vw,2.4rem); font-weight:700; }
+    h3{ font-size:1.15rem; font-weight:700; }
+    a{ color:var(--text); }
+    .accent{ color:var(--brand); }
+    .up{ color:var(--up); }
+    .mono{ font-family:'IBM Plex Mono',monospace; }
+    .eyebrow{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.78rem;
+      letter-spacing:.08em;
+      color:var(--brand);
+      text-transform:lowercase;
+      margin:0 0 .9rem;
+    }
+    section{ max-width:var(--maxw); margin:0 auto; padding:5rem 1.5rem 1rem; }
+
+    /* Nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:.9rem 1.5rem;
+      background:rgba(16,20,29,.88);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-name{ font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--brand); text-decoration:none; }
+    .nav-links{ display:flex; gap:1.3rem; align-items:center; flex-wrap:wrap; }
+    .nav-links a{ font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--muted); text-decoration:none; transition:color .15s; }
+    .nav-links a:hover{ color:var(--text); }
+    .nav-cta{ color:var(--bg) !important; background:var(--brand); padding:.4rem .85rem; border-radius:6px; font-weight:600; }
+    .nav-cta:hover{ opacity:.9; }
+
+    /* Hero */
+    .hero{ padding-top:6rem; padding-bottom:3.5rem; }
+    .hero h1{ font-size:clamp(2.2rem,6vw,3.9rem); font-weight:800; max-width:17em; }
+    .hero-sub{ color:var(--muted); font-size:1.05rem; max-width:46em; margin:1.4rem 0 2rem; }
+    .hero-actions{ display:flex; gap:.9rem; flex-wrap:wrap; }
+    .hero-note{ font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--muted); margin-top:2rem; }
+    .btn{
+      display:inline-block;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.85rem; font-weight:600;
+      text-decoration:none;
+      padding:.7rem 1.2rem;
+      border-radius:8px;
+      transition:transform .15s,opacity .15s,border-color .15s;
+    }
+    .btn:hover{ transform:translateY(-1px); }
+    .btn-primary{ background:var(--brand); color:var(--bg); }
+    .btn-primary:hover{ opacity:.9; }
+    .btn-ghost{ border:1px solid var(--line); color:var(--text); }
+    .btn-ghost:hover{ border-color:var(--muted); }
+
+    /* Ticker */
+    .ticker{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:var(--panel);
+      overflow:hidden;
+      white-space:nowrap;
+    }
+    .ticker-track{ display:inline-block; padding:.85rem 0; animation:ticker 34s linear infinite; }
+    .tick{ font-family:'IBM Plex Mono',monospace; font-size:.85rem; color:var(--muted); margin-right:3.5rem; }
+    .tick b{ font-weight:600; margin-right:.4rem; }
+    .tick::after{ content:"▲"; color:var(--up); font-size:.6rem; margin-left:3.4rem; vertical-align:middle; }
+    @keyframes ticker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+    @media (prefers-reduced-motion:reduce){
+      .ticker-track{ animation:none; }
+      html{ scroll-behavior:auto; }
+    }
+
+    /* About */
+    .about{ display:grid; grid-template-columns:240px 1fr; gap:3rem; align-items:start; }
+    .about-photo img{ width:100%; border-radius:12px; border:1px solid var(--line); display:block; }
+    .about-text p{ color:var(--muted); max-width:44em; }
+    .about-text p b{ color:var(--text); }
+    @media (max-width:760px){
+      .about{ grid-template-columns:1fr; gap:1.6rem; }
+      .about-photo img{ max-width:220px; }
+    }
+
+    /* Service blocks with results */
+    .work h2{ margin-bottom:2.2rem; }
+    .case{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:1.8rem 1.9rem;
+      margin-bottom:1.3rem;
+    }
+    .case-head{ display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:.4rem; }
+    .case-head h3{ margin:0; }
+    .case-tag{ font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--muted); margin:0; }
+    .case-desc{ color:var(--muted); max-width:52em; margin:.4rem 0 1.2rem; }
+
+    .result{
+      border-top:1px solid var(--line);
+      padding:1.1rem 0 .3rem;
+    }
+    .result-name{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.78rem;
+      color:var(--text);
+      margin:0 0 .7rem;
+    }
+    .case-stats{ display:flex; gap:2.5rem; flex-wrap:wrap; margin-bottom:.6rem; }
+    .stat{ display:flex; flex-direction:column; }
+    .stat-num{ font-family:'IBM Plex Mono',monospace; font-size:1.55rem; font-weight:600; }
+    .stat-label{ font-size:.8rem; color:var(--muted); margin-top:.15rem; }
+
+    /* Dev projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:1.3rem;
+      margin-top:1.8rem;
+    }
+    .project{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .project img{ width:100%; display:block; border-bottom:1px solid var(--line); aspect-ratio:16/9; object-fit:cover; }
+    .project-body{ padding:1.3rem 1.4rem 1.4rem; display:flex; flex-direction:column; gap:.6rem; flex:1; }
+    .project-body h3{ font-size:1rem; margin:0; }
+    .project-body p{ color:var(--muted); font-size:.88rem; margin:0; flex:1; }
+    .chips{ display:flex; gap:.45rem; flex-wrap:wrap; }
+    .chip{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.68rem;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:5px;
+      padding:.15rem .5rem;
+    }
+    .project-links{ display:flex; gap:1.1rem; margin-top:.3rem; }
+    .project-links a{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:.78rem;
+      color:var(--brand);
+      text-decoration:none;
+    }
+    .project-links a:hover{ text-decoration:underline; }
+
+    /* Edge */
+    .edge h2{ max-width:22em; }
+    .edge-list{ list-style:none; padding:0; margin:1.6rem 0; border-top:1px solid var(--line); max-width:52em; }
+    .edge-list li{ padding:.8rem 0; border-bottom:1px solid var(--line); color:var(--muted); font-size:.95rem; }
+    .edge-list b{ color:var(--text); font-weight:600; }
+    .edge-note{ color:var(--muted); max-width:44em; }
+
+    /* Contact */
+    .contact{ padding-bottom:5rem; }
+    .contact-sub{ color:var(--muted); margin-bottom:1.8rem; }
+    .contact-links{ display:flex; gap:.9rem; flex-wrap:wrap; }
+
+    /* Footer */
+    .footer{ border-top:1px solid var(--line); padding:1.6rem 1.5rem; text-align:center; }
+    .footer p{ font-size:.78rem; color:var(--muted); margin:0; }
+
+    a:focus-visible, summary:focus-visible{
+      outline:2px solid var(--brand);
+      outline-offset:3px;
+      border-radius:4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-name" href="#top">rohank.base.eth</a>
+    <nav class="nav-links">
+      <a href="#work">Services</a>
+      <a href="#projects">Dev projects</a>
+      <a href="#edge">Edge</a>
+      <a class="nav-cta" href="https://t.me/copiummaxi" target="_blank" rel="noopener">DM me</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">// web3 growth · community · KOL campaigns · code</p>
+      <h1>I turn Web3 products into <span class="accent">communities that show up.</span></h1>
+      <p class="hero-sub">
+        I'm Rohan, a Web3 growth marketer who also ships code. KOL campaigns, social media
+        management, and community growth for crypto projects, backed by a Computer Science degree
+        and Solidity development. I don't chase impressions. I move mints, users, holders, and
+        market cap.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://t.me/copiummaxi" target="_blank" rel="noopener">Telegram: @copiummaxi</a>
+        <a class="btn btn-ghost" href="https://x.com/rohankanojia_in" target="_blank" rel="noopener">X: @rohankanojia_in</a>
+      </div>
+      <p class="hero-note">Full receipts, post links, and references available on request.</p>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-label="Headline stats">
+      <div class="ticker-track">
+        <span class="tick"><b class="up">470K+</b> documented views</span>
+        <span class="tick"><b class="up">24K+</b> community members grown</span>
+        <span class="tick"><b class="up">2,000</b> paid NFT mints from one campaign</span>
+        <span class="tick"><b class="up">2x</b> market cap during a KOL launch push</span>
+        <span class="tick"><b class="up">98.1K</b> views on top client post</span>
+        <span class="tick"><b class="up">5</b> projects managed end-to-end</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-photo">
+        <img src="images/photo.jpeg" alt="Rohan Kanojia">
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">// about</p>
+        <h2>Web3-native since 2021</h2>
+        <p>
+          I'm from Delhi, India, with a B.Tech in Computer Science from Chandigarh University.
+          I've run social, community, and KOL campaigns for AI compute networks, Web3 gaming
+          apps, media networks, and growth agencies. Launch announcements, campaign breakdowns,
+          and community content that gets real numbers moving, not just impressions.
+        </p>
+        <p>
+          What makes me different: I started as a developer. I write Solidity, I've built
+          full-stack apps and DeFi bots, and I can read the docs and understand the architecture
+          of any product I market. No founder hand-holding, no technical mistakes in your
+          announcements. My dev work is further down this page.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICES & RESULTS -->
+    <section class="work" id="work">
+      <p class="eyebrow">// services &amp; results</p>
+      <h2>What I do, and what it delivered</h2>
+
+      <!-- KOL Campaigns -->
+      <article class="case">
+        <div class="case-head">
+          <h3>KOL Campaigns</h3>
+          <p class="case-tag">sourcing · vetting · coordination · conversion tracking</p>
+        </div>
+        <p class="case-desc">
+          I source and vet KOLs, negotiate and coordinate the lineup, sequence posts around the
+          launch window, and manage the campaign end-to-end with conversions tracked, not just
+          impressions.
+        </p>
+
+        <div class="result">
+          <p class="result-name">Campaign: ETH vault launch, Web3 gaming token</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">2x</span><span class="stat-label">market cap after campaign posts went live</span></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="result-name">Campaign: KOL-driven quest funnel, NFT mint</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">10,000</span><span class="stat-label">users into the quest funnel</span></div>
+            <div class="stat"><span class="stat-num up">2,000</span><span class="stat-label">paid NFT mints</span></div>
+            <div class="stat"><span class="stat-num up">20%</span><span class="stat-label">funnel-to-mint conversion</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Social Media Management -->
+      <article class="case">
+        <div class="case-head">
+          <h3>Social Media Management</h3>
+          <p class="case-tag">content strategy · growth writing · account growth</p>
+        </div>
+        <p class="case-desc">
+          Full ownership of X accounts: content calendars, launch announcements, technical
+          explainers, partnership threads, and campaign recaps. I specialize in translating
+          deep-tech products for non-technical audiences.
+        </p>
+
+        <div class="result">
+          <p class="result-name">Client: decentralized AI compute network</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">387K+</span><span class="stat-label">views across 10 tracked posts</span></div>
+            <div class="stat"><span class="stat-num up">98.1K</span><span class="stat-label">views on top post</span></div>
+            <div class="stat"><span class="stat-num up">20-60K</span><span class="stat-label">consistent view range per post</span></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="result-name">Client: early-stage AI project</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">5,000</span><span class="stat-label">X followers grown from zero</span></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="result-name">Clients: Web3 growth agency · gaming app · 24/7 Web3/AI broadcast network</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">34</span><span class="stat-label">tracked posts shipped across three ongoing accounts</span></div>
+            <div class="stat"><span class="stat-num up">17.6K</span><span class="stat-label">views on top agency post</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Community Management -->
+      <article class="case">
+        <div class="case-head">
+          <h3>Community Management</h3>
+          <p class="case-tag">discord · moderation · ambassador programs · engagement</p>
+        </div>
+        <p class="case-desc">
+          Discord architecture, moderation systems, engagement programs, and ambassador program
+          supervision. Communities built from zero and kept alive after launch.
+        </p>
+
+        <div class="result">
+          <p class="result-name">Client: Web3 gaming ecosystem + competitive league</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">12,000</span><span class="stat-label">X followers grown</span></div>
+            <div class="stat"><span class="stat-num up">5,000</span><span class="stat-label">Discord members grown</span></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="result-name">Client: early-stage AI project</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">2,000</span><span class="stat-label">Discord members grown</span></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <p class="result-name">Client: Layer 1 / Layer 2 network ecosystem</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">Supervisor</span><span class="stat-label">of ambassador-generated content across X and Reddit</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Growth Writing & Analysis -->
+      <article class="case">
+        <div class="case-head">
+          <h3>Growth Writing &amp; Analysis</h3>
+          <p class="case-tag">explainers · breakdowns · launch content · research</p>
+        </div>
+        <p class="case-desc">
+          Technical explainers for non-technical audiences, project breakdowns, and launch
+          content, all fact-checked before it ships under your brand. I also publish independent
+          analysis of emerging AI-agent and Web3 projects under my own name, because a marketer
+          who can't grow their own audience shouldn't be trusted with yours.
+        </p>
+
+        <div class="result">
+          <p class="result-name">Own account: @rohankanojia_in</p>
+          <div class="case-stats">
+            <div class="stat"><span class="stat-num up">12.1K</span><span class="stat-label">views on top breakdown thread</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Launch Support -->
+      <article class="case">
+        <div class="case-head">
+          <h3>Launch Support</h3>
+          <p class="case-tag">pre-TGE cadence · launch sequencing · post-launch retention</p>
+        </div>
+        <p class="case-desc">
+          Content cadence in the weeks before TGE, coordinated sequencing through the launch
+          window, and community retention when the hype cools. The launch results above (2x
+          market cap, 2,000 mints) came from this playbook.
+        </p>
+      </article>
+    </section>
+
+    <!-- DEV PROJECTS -->
+    <section class="work" id="projects">
+      <p class="eyebrow">// dev projects · code I've shipped</p>
+      <h2>I build too</h2>
+      <div class="projects-grid">
+
+        <div class="project">
+          <img src="images/image1.png" alt="Crime Record Management System screenshot">
+          <div class="project-body">
+            <h3>Crime Record Management System</h3>
+            <p>Web app where the public files complaints online and police review and act on them through an admin portal.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">PHP</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25/CrimeRecordManagementSystem" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://rohankanojia25.github.io/CrimeRecordManagementSystem/" target="_blank" rel="noopener">Live ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="images/image6.png" alt="Flash loan arbitrage bot">
+          <div class="project-body">
+            <h3>Flash Loan Arbitrage Bot</h3>
+            <p>Solidity bot executing automated arbitrage trades using flash loans across DeFi platforms. No manual work required.</p>
+            <div class="chips">
+              <span class="chip">Solidity</span><span class="chip">DeFi</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="images/image2.png" alt="Eternity Restro website screenshot">
+          <div class="project-body">
+            <h3>Eternity Restro Website</h3>
+            <p>Restaurant site with menu items and online table booking.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25/EternityRestroWebsite" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://rohankanojia25.github.io/EternityRestroWebsite/" target="_blank" rel="noopener">Live ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="images/image5.png" alt="Work Calculator software screenshot">
+          <div class="project-body">
+            <h3>Work Calculator</h3>
+            <p>Billing software built for my father's business. Makes payment bills faster, easier, and accurate.</p>
+            <div class="chips">
+              <span class="chip">Java</span><span class="chip">JavaFX</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25/WorkCalculator" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="images/image3.png" alt="Gaming Guild website screenshot">
+          <div class="project-body">
+            <h3>Gaming Guild Website</h3>
+            <p>Landing site for a gaming guild.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25/GamingGuildWebsite" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://rohankanojia25.github.io/GamingGuildWebsite/" target="_blank" rel="noopener">Live ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="images/image4.png" alt="Tindog website screenshot">
+          <div class="project-body">
+            <h3>Tindog</h3>
+            <p>Responsive Bootstrap landing page project.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/rohankanojia25/TinDog" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://rohankanojia25.github.io/TinDog/" target="_blank" rel="noopener">Live ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDGE -->
+    <section class="edge" id="edge">
+      <p class="eyebrow">// the technical edge</p>
+      <h2>Most Web3 marketers can't read a contract. <span class="accent">I can.</span></h2>
+      <ul class="edge-list">
+        <li><b>B.Tech, Computer Science Engineering</b> · Chandigarh University (2020-2024) · 8.0 CGPA</li>
+        <li><b>Solidity developer</b> · built a flash-loan arbitrage bot executing automated trades across DeFi platforms</li>
+        <li><b>Full-stack fundamentals</b> · JavaScript, Node.js, React, Java, C++</li>
+        <li><b>Certified</b> · Ethereum &amp; Solidity: The Complete Developer's Guide (Udemy) · Data Structures in Java (NPTEL)</li>
+        <li><b>Schooling</b> · Evergreen Public School, Delhi (2007-2020)</li>
+      </ul>
+      <p class="edge-note">
+        I understand tokenomics, DeFi mechanics, and chain architecture well enough to explain them
+        accurately and catch errors before they go live. Your announcements get written right the
+        first time.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <p class="eyebrow">// contact</p>
+      <h2>Building something? <span class="accent">Let's talk.</span></h2>
+      <p class="contact-sub">Open to full-time and campaign-based roles with Web3 projects. Full receipts and references on request.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="https://t.me/copiummaxi" target="_blank" rel="noopener">Telegram (fastest)</a>
+        <a class="btn btn-ghost" href="mailto:rohankanojia2002@gmail.com">Email</a>
+        <a class="btn btn-ghost" href="https://x.com/rohankanojia_in" target="_blank" rel="noopener">X</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/rohan-kanojia-6456a7103/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/rohankanojia25/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><span class="mono">rohank.base.eth</span> · © <span id="year">2026</span> Rohan Kanojia</p>
+  </footer>
+
+  <script>
+    (function () {
+      var track = document.querySelector('.ticker-track');
+      if (track) { track.innerHTML = track.innerHTML + track.innerHTML; }
+      var year = document.getElementById('year');
+      if (year) { year.textContent = new Date().getFullYear(); }
+    })();
+  </script>
+</body>
+</html>
